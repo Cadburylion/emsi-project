@@ -1,6 +1,8 @@
 import React from 'react'
 import * as d3 from 'd3'
 
+import './style.css'
+
 export default class Industry extends React.Component{
   constructor(props){
     super(props)
@@ -39,7 +41,7 @@ export default class Industry extends React.Component{
   }
 
   buildBarChart(){
-    let listItems = d3.select('.industryChart').selectAll('p').data(this.state.employing_industries.industries).enter().append('li')
+    let listItems = d3.select('.industry-chart').selectAll('p').data(this.state.employing_industries.industries).enter().append('li')
 
     listItems.append('p')
       .style('width', (d) => d.perc_occupation_in_industry + '%')
@@ -57,7 +59,7 @@ export default class Industry extends React.Component{
 
 
   render(){
-
+    console.log(this.state.employing_industries.industries)
     return(
       <div className='chart-container'>
         <div className='chart-header'>
@@ -72,7 +74,7 @@ export default class Industry extends React.Component{
             <span>({this.state.summary.jobs.year})</span>
           </p>
         </div>
-        <ul className='industryChart'></ul>
+        <ul className='industry-chart'></ul>
       </div>
     )
   }

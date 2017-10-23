@@ -25,7 +25,6 @@ export default class Fetch extends React.Component {
   }
 
   render(){
-    console.log('report: ', this.state.report)
     return(
       <Industry report={JSON.parse(JSON.stringify(this.state.report))}/>
     )
