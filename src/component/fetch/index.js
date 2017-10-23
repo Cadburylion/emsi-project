@@ -20,11 +20,14 @@ export default class Fetch extends React.Component {
     this.setState({
       report: data,
     })
+
+
   }
 
   render(){
+    console.log('report: ', this.state.report)
     return(
-      <Industry report={this.state.report}/>
+      <Industry report={JSON.parse(JSON.stringify(this.state.report))}/>
     )
   }
 }
