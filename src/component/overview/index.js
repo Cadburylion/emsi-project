@@ -1,6 +1,8 @@
 import React from 'react'
 import * as d3 from 'd3'
 
+import './style.css'
+
 export default class Overview extends React.Component {
   constructor(props){
     super(props)
@@ -10,10 +12,20 @@ export default class Overview extends React.Component {
       summary: this.props.report.summary,
     }
     this.computePercentage = this.computePercentage.bind(this)
+
   }
 
   componentWillMount(){
     this.computePercentage(this.props.report.summary)
+
+    let {summary} = this.props.report
+
+    summary.jobs.regional = this.addCommas(summary.jobs.regional)
+    summary.jobs.national_avg = this.addCommas(summary.jobs.national_avg)
+  }
+
+  addCommas(num) {
+    return (num + '').replace(/(\d)(?=(\d{3})+$)/g, '$1,')
   }
 
   computePercentage(data){
@@ -29,11 +41,11 @@ export default class Overview extends React.Component {
     console.log(this.state)
     return(
       <div className='overview-container'>
-        <h1 className='report-title'>Occupation Overview</h1>
-        <h2 className='report-description'>
+        <h1 className='overview-title'>Occupation Overview</h1>
+        <h2 className='overview-description'>
           {this.state.occupation.title} in {this.state.region.title}.
         </h2>
-        <h3>
+        <h3 className='overview-occupation'>
           Occupation Summary for {this.state.occupation.title}.
         </h3>
         <div className='overview-statistics'>
@@ -50,9 +62,9 @@ export default class Overview extends React.Component {
           </div>
           <div className='overview-change'>
             <div className='overview-change-inner'>
-              <p>{this.state.summary.jobs_growth.regional}%</p>
+              <p className={this.state.jobGrowth ? 'positive' : 'negative'}>{this.state.summary.jobs_growth.regional}%</p>
               <p>% Change ({this.state.summary.jobs_growth.start_year})-({this.state.summary.jobs_growth.end_year})</p>
-              <p className={this.state.jobGrowth ? 'positive' : 'negative'}>Nation: {this.state.summary.jobs_growth.national_avg}%</p>
+              <p>Nation: <span className={this.state.jobGrowth ? 'positive' : 'negative'}>+{this.state.summary.jobs_growth.national_avg}%</span></p>
             </div>
           </div>
           <div className='overview-earnings'>
