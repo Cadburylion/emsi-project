@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.trend-container {
+  width: 95vw;
+  margin: 0 auto;
+  border-bottom: 0.5px solid lightgrey;
+  margin-bottom: 60px;
+}
+
+.trend-bar-header {
+  height: 60px;
+}
+
+.trend-bar-header .trend-bar-title {
+  display: inline-block;
+}
+
+.trend-bar-header p {
+  display: inline-block;
+  padding: 7px;
+  width: 140px;
+  line-height: 40px;
+}
+
+.trend-bar-title {
+  float: left;
+  text-align: left;
+  font-weight: 900;
+}
+
+.trend-li {
+  text-align: left;
+  border-top: 0.5px solid lightgrey;
+}
+
+.trend-li p {
+  display: inline-block;
+  width: auto;
+  text-align: left;
+  padding: 7px;
+}
