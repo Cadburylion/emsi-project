@@ -59,7 +59,6 @@ export default class Industry extends React.Component{
 
 
   render(){
-    console.log(this.state.employing_industries.industries)
     return(
       <div className='chart-container'>
         <div className='chart-header'>
