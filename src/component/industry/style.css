@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font: 16px sans-serif;
+}
+
+li span {
+  float: right;
+  padding: 7px;
+  width: 140px;
+  text-align: right;
+}
+
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.fl-right {
+  float: right;
+  text-align: right;
+}
+
+.chart-container {
+  width: 95vw;
+  margin: 0 auto;
+}
+
+.chart-header {
+  height: 80px;
+}
+
+.chart-header p {
+  display: inline-block;
+  padding: 7px;
+  width: 140px;
+}
+
+.chart-header span {
+  display: block;
+}
+
+.industry {
+  margin-top: 22px;
+  float: left;
+  text-align: left;
+}
+
+.industry-chart {
+  border-top: 0.5px solid lightgrey;
+}
+
+.industry-chart li {
+  text-align: left;
+  color: black;
+  overflow: visible;
+  white-space: nowrap;
+  border-bottom: 0.5px solid lightgrey;
+}
+
+.industry-chart p {
+  padding: 7px;
+  display: inline-block;
+  background: steelblue;
+}
