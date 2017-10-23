@@ -41,7 +41,7 @@ export default class Industry extends React.Component{
   }
 
   buildBarChart(){
-    let listItems = d3.select('.industry-chart').selectAll('p').data(this.state.employing_industries.industries).enter().append('li')
+    let listItems = d3.select('.industry-chart').selectAll('p').data(this.state.employing_industries.industries).enter().append('li').classed('clearfix', true)
 
     listItems.append('p')
       .style('width', (d) => d.perc_occupation_in_industry + '%')
