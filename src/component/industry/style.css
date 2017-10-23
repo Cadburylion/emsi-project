@@ -64,5 +64,6 @@ li span {
 .industry-chart p {
   padding: 7px;
   display: inline-block;
-  background: steelblue;
+  background: #eaf2f9;
+  color: #4f8fca;
 }
