@@ -15,12 +15,18 @@ export default class Industry extends React.Component{
     }
     this.computePercentages = this.computePercentages.bind(this)
     this.buildBarChart = this.buildBarChart.bind(this)
+    this.addCommas = this.addCommas.bind(this)
   }
 
   componentWillMount(){
     let {employing_industries} = this.props.report
 
     employing_industries = this.computePercentages(employing_industries)
+
+    employing_industries.industries.forEach((e) => {
+      e.in_occupation_jobs = this.addCommas(e.in_occupation_jobs)
+      e.jobs = this.addCommas(e.jobs)
+    })
   }
 
   componentDidMount() {
@@ -29,6 +35,10 @@ export default class Industry extends React.Component{
 
   componentDidUpdate() {
     this.buildBarChart()
+  }
+
+  addCommas(num) {
+    return (num + '').replace(/(\d)(?=(\d{3})+$)/g, '$1,')
   }
 
   computePercentages(data){
