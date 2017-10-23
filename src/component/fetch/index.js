@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as data from '../../db/data.json'
 
-import Industries from '../industries/index.js'
+import Industry from '../industry/index.js'
 
 export default class Fetch extends React.Component {
   constructor(props){
@@ -24,7 +24,7 @@ export default class Fetch extends React.Component {
 
   render(){
     return(
-      <Industries report={this.state.report}/>
+      <Industry report={this.state.report}/>
     )
   }
 }
