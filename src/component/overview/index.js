@@ -33,7 +33,9 @@ export default class Overview extends React.Component {
 
     this.setState({
       jobPerc: jobPerc + '%',
-      jobGrowth: jobPerc > 0 ? true : false,
+      jobGrowth: jobPerc > 100 ? true : false,
+      regGrowth: data.jobs_growth.regional > 0 ? true : false,
+      natGrowth: data.jobs_growth.national_avg > 0 ? true : false,
     })
   }
 
@@ -46,7 +48,7 @@ export default class Overview extends React.Component {
           {this.state.occupation.title} in {this.state.region.title}.
         </h2>
         <h3 className='overview-occupation'>
-          Occupation Summary for {this.state.occupation.title}.
+          Occupation Summary for {this.state.occupation.title}
         </h3>
         <div className='overview-statistics'>
           <div className='overview-jobs'>
@@ -55,16 +57,16 @@ export default class Overview extends React.Component {
               <p>Jobs({this.state.summary.jobs.year})</p>
               <p>
                 {this.state.jobPerc}
-                <span className={this.state.jobGrowth ? 'positive' : 'negative'}> {this.state.jobGrowth ? 'above' : 'below'} </span>
+                <span className={this.state.jobGrowth ? 'positive' : 'negative'}> {this.state.jobGrowth ? 'above' : 'of'} </span>
                 National average
               </p>
             </div>
           </div>
           <div className='overview-change'>
             <div className='overview-change-inner'>
-              <p className={this.state.jobGrowth ? 'positive' : 'negative'}>{this.state.summary.jobs_growth.regional}%</p>
+              <p className={this.state.regGrowth ? 'positive' : 'negative'}>{this.state.regGrowth ? '+' : ''}{this.state.summary.jobs_growth.regional}%</p>
               <p>% Change ({this.state.summary.jobs_growth.start_year})-({this.state.summary.jobs_growth.end_year})</p>
-              <p>Nation: <span className={this.state.jobGrowth ? 'positive' : 'negative'}>+{this.state.summary.jobs_growth.national_avg}%</span></p>
+              <p>Nation: <span className={this.state.natGrowth ? 'positive' : 'negative'}>{this.state.natGrowth ? '+' : ''}{this.state.summary.jobs_growth.national_avg}%</span></p>
             </div>
           </div>
           <div className='overview-earnings'>
