@@ -2,6 +2,7 @@ import React from 'react'
 
 import * as data from '../../db/data.json'
 
+import Overview from '../overview/index.js'
 import Industry from '../industry/index.js'
 
 export default class Fetch extends React.Component {
@@ -25,8 +26,12 @@ export default class Fetch extends React.Component {
   }
 
   render(){
+    let reportCopy = JSON.parse(JSON.stringify(this.state.report))
     return(
-      <Industry report={JSON.parse(JSON.stringify(this.state.report))}/>
+      <div className='component-container'>
+        <Overview report={reportCopy} />
+        <Industry report={reportCopy} />
+      </div>
     )
   }
 }
