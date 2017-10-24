@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-style: sans-serif;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}
+
+.overview-container {
+  width: 95vw;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.overview-title {
+  font-size: 27px;
+  font-weight: 900;
+  padding: 25px 0 7px 0;
+}
+
+.overview-description {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.overview-occupation {
+  font-weight: 900;
+}
+
+.overview-statistics {
+  display: flex;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-top: 0.5px solid lightgrey;
+  border-bottom: 0.5px solid lightgrey;
+}
+
+.overview-jobs, .overview-change, .overview-earnings {
+  flex: 1 1 auto;
+  text-align: center;
+  padding: 35px 0 35px 0;
+}
+
+.overview-jobs p, .overview-change-inner p, .overview-earnings-inner p {
+  padding: 2px;
+}
+
+.overview-jobs-inner p:nth-child(1) {
+  font-size: 30px;
+}
+
+.overview-jobs-inner p:nth-child(2) {
+  font-size: 12px;
+}
+
+.overview-jobs-inner p:nth-child(3) {
+  font-size: 12px;
+}
+
+.overview-jobs-inner span:nth-child(1) {
+  font-size: 12px;
+}
+
+.overview-change {
+  border-left: 0.5px solid lightgrey;
+  border-right: 0.5px solid lightgrey;
+}
+
+.overview-change-inner p:nth-child(1) {
+  font-size: 30px;
+}
+
+.overview-change-inner p:nth-child(2) {
+  font-size: 12px;
+}
+
+.overview-change-inner p:nth-child(3) {
+  font-size: 12px;
+}
+
+.overview-change-inner span:nth-child(1) {
+  font-size: 12px;
+}
+
+.overview-earnings-inner p:nth-child(1) {
+  font-size: 30px;
+}
+
+.overview-earnings-inner p:nth-child(2) {
+  font-size: 12px;
+}
+
+.overview-earnings-inner p:nth-child(3) {
+  font-size: 12px;
+}

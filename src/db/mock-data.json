@@ -1,0 +1,91 @@
+{
+  "occupation": {
+    "onet": "15-1131",
+    "title": "Misc Jobs"
+  },
+  "region": {
+    "type": "MSA",
+    "id": "42660",
+    "title": "Random Region, US"
+  },
+  "summary": {
+    "jobs": {
+      "year": 2015,
+      "regional": 9502,
+      "national_avg": 16501
+    },
+    "jobs_growth": {
+      "start_year": 2008,
+      "end_year": 2014,
+      "regional": -29.2,
+      "national_avg": -6.1
+    },
+    "earnings": {
+      "regional": 25.67,
+      "national_avg": 28.3
+    }
+  },
+  "trend_comparison": {
+    "start_year": 2008,
+    "end_year": 2014,
+    "regional": [
+      24834,
+      14532,
+      46372,
+      23013,
+      13242,
+      17583
+    ],
+    "state": [
+      23412,
+      21342,
+      19842,
+      21344,
+      19872,
+      18723
+    ],
+    "nation": [
+      300651,
+      307024,
+      303042,
+      318998,
+      319009
+    ]
+  },
+  "employing_industries": {
+    "year": 2015,
+    "jobs": 12352,
+    "industries": [
+      {
+        "naics": "511210",
+        "title": "Electrical Engineering",
+        "in_occupation_jobs": 1044,
+        "jobs": 2504
+      },
+      {
+        "naics": "541512",
+        "title": "Publishing",
+        "in_occupation_jobs": 873,
+        "jobs": 10582
+      },
+      {
+        "naics": "541512",
+        "title": "Farming",
+        "in_occupation_jobs": 2140,
+        "jobs": 25252
+      },
+      {
+        "naics": "541512",
+        "title": "Retail",
+        "in_occupation_jobs": 6204,
+        "jobs": 100342
+      },
+      {
+        "naics": "541512",
+        "title": "Kite Manufacturing",
+        "in_occupation_jobs": 189,
+        "jobs": 642
+      }
+    ]
+  }
+}

@@ -24,16 +24,25 @@ li span {
   text-align: right;
 }
 
-.chart-container {
+.line-chart-container {
   width: 95vw;
   margin: 0 auto;
+  margin-bottom: 60px;
 }
 
-.chart-header {
-  height: 80px;
+.line-chart-header {
+  height: 100px;
 }
 
-.chart-header p {
+.line-chart-header-title {
+  font-size: 18px;
+  font-weight: 900;
+  text-align: left;
+  padding-bottom: 7px;
+  border-bottom: 0.5px solid lightgrey;
+}
+
+.line-chart-header p {
   display: inline-block;
   padding: 7px;
   width: 140px;
@@ -49,11 +58,11 @@ li span {
   text-align: left;
 }
 
-.industry-chart {
+.industry-line-chart {
   border-top: 0.5px solid lightgrey;
 }
 
-.industry-chart li {
+.industry-line-chart li {
   text-align: left;
   color: black;
   overflow: visible;
@@ -61,8 +70,9 @@ li span {
   border-bottom: 0.5px solid lightgrey;
 }
 
-.industry-chart p {
+.industry-line-chart p {
   padding: 7px;
   display: inline-block;
-  background: steelblue;
+  background: #eaf2f9;
+  color: #4f8fca;
 }

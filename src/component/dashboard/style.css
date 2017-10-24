@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.current {
+  color: #518ec9;
+}
+
+.ajax-btn {
+  display: inline-block;
+  position: relative;
+  float: right;
+  height: 25px;
+  width: 80px;
+  margin: 25px 25px 0 0;
+  cursor: pointer;
+}
+
+.ajax-btn span {
+  font-weight: 900;
+  font: sans-serif;
+}
+
+.ajax-btn span:nth-child(2), .ajax-btn span:nth-child(3) {
+  position: absolute;
+  width: 40px;
+  height: 2px;
+  top: 20px;
+  left: 20px;
+  background: #518ec9;
+  transition: .3s ease-in-out;
+}
+
+.ajax-btn:hover span:nth-child(2) {
+  width: 60px;
+  left: 10px;
+}
+
+.ajax-btn:hover span:nth-child(3) {
+  top: 25px;
+}
