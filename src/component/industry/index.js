@@ -1,5 +1,4 @@
 import React from 'react'
-import * as d3 from 'd3'
 
 import './style.css'
 
@@ -26,9 +25,15 @@ export default class Industry extends React.Component{
               <p key={i + 'b'} style={{width: e.perc_occupation_in_industry + '%'}}>
                 {e.title}
               </p>
-              <span key={i + 'c'}>{e.perc_total_jobs_in_industry + '%'}</span>
-              <span key={i + 'd'}>{e.perc_occupation_in_industry + '%'}</span>
-              <span key={i + 'e'}>{e.in_occupation_jobs}</span>
+              <span key={i + 'c'}>
+                {e.perc_total_jobs_in_industry + '%'}
+              </span>
+              <span key={i + 'd'}>
+                {e.perc_occupation_in_industry + '%'}
+              </span>
+              <span key={i + 'e'}>
+                {e.in_occupation_jobs}
+              </span>
             </li>
           })}
         </ul>

@@ -23,7 +23,7 @@ export default class Dashboard extends React.Component {
 
     // fetch(url, {method: 'GET'})
     //   .then((res) => res.ok ? res.json() : '')
-    //    .then((res) => perform logic on data)
+    //   .then((res) => perform logic on data)
     //   .then((res) => setState({report: res}))
 
     this.mockAJAX(emsiData)
@@ -31,7 +31,6 @@ export default class Dashboard extends React.Component {
 
   mockAJAX(data){
     let dataCopy = JSON.parse(JSON.stringify(data))
-    // this.sortIndustries(dataCopy)
     this.handleData(dataCopy)
 
     this.setState({

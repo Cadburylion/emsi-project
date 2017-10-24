@@ -5,8 +5,6 @@ import './style.css'
 
 export default class Overview extends React.Component {
   render(){
-    console.log('Overview props: ', this.props.report)
-  
     return(
       <div className='overview-container'>
         <h1 className='overview-title'>Occupation Overview</h1>
