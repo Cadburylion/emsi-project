@@ -6,12 +6,12 @@
   "region": {
     "type": "MSA",
     "id": "42660",
-    "title": "Random region, US"
+    "title": "Random Region, US"
   },
   "summary": {
     "jobs": {
       "year": 2015,
-      "regional": 11502,
+      "regional": 9502,
       "national_avg": 16501
     },
     "jobs_growth": {

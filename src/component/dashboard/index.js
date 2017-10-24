@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 
 import * as util from '../../lib/util.js'
 import * as emsiData from '../../db/data.json'
@@ -13,9 +14,11 @@ export default class Dashboard extends React.Component {
     super(props)
     this.state={
       report: '',
+      emsiData: true,
     }
     this.mockAJAX = this.mockAJAX.bind(this)
     this.handleData = this.handleData.bind(this)
+    this.toggleCurrent = this.toggleCurrent.bind(this)
   }
 
   componentDidMount(){
@@ -44,12 +47,36 @@ export default class Dashboard extends React.Component {
     data = util.addCommas(data)
   }
 
+  toggleCurrent(btn){
+    this.setState({
+      emsiData: btn === 'emsi' ? true : false,
+    })
+  }
+
   render(){
     let reportCopy = JSON.parse(JSON.stringify(this.state.report))
     return(
+
       <div className='component-container'>
-        <div onClick={() => this.mockAJAX(emsiData)}> Emsi Data </div>
-        <div onClick={() => this.mockAJAX(mockData)}> Mock Data </div>
+
+        <div className='ajax-btn' onClick={() => {
+          this.mockAJAX(emsiData)
+          this.toggleCurrent('emsi')
+        }}>
+          <span className={this.state.emsiData ? 'current' : ''}>Emsi Data</span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div className='ajax-btn' onClick={() => {
+          this.mockAJAX(mockData)
+          this.toggleCurrent(null)
+        }}>
+          <span className={this.state.emsiData ? '' : 'current'}>Mock Data</span>
+          <span></span>
+          <span></span>
+        </div>
+
         {util.renderIf(this.state.report,
           <div>
             <Overview report={reportCopy} />
@@ -57,6 +84,7 @@ export default class Dashboard extends React.Component {
             <Industry report={reportCopy} />
           </div>
         )}
+
       </div>
     )
   }

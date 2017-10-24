@@ -1,13 +1,14 @@
 import React from 'react'
-
 import './style.css'
 
 export default class Industry extends React.Component{
   render(){
     return(
-      <div className='chart-container'>
-        <div className='chart-header'>
-          <h2 className='chart-header-title'>Industries Employing {this.props.report.occupation.title}</h2>
+
+      <div className='line-chart-container'>
+
+        <div className='line-chart-header'>
+          <h2 className='line-chart-header-title'>Industries Employing {this.props.report.occupation.title}</h2>
           <p className='industry'>Industry</p>
           <p className='fl-right'>% of Total Jobs in Industry
             <span>({this.props.report.summary.jobs.year})</span>
@@ -19,7 +20,8 @@ export default class Industry extends React.Component{
             <span>({this.props.report.summary.jobs.year})</span>
           </p>
         </div>
-        <ul className='industry-chart'>
+
+        <ul className='industry-line-chart'>
           {this.props.report.employing_industries.industries.map((e, i) => {
             return <li key={i + 'a'} className='clearfix'>
               <p key={i + 'b'} style={{width: e.perc_occupation_in_industry + '%'}}>
@@ -37,6 +39,7 @@ export default class Industry extends React.Component{
             </li>
           })}
         </ul>
+
       </div>
     )
   }
