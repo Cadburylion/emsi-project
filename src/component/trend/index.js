@@ -9,17 +9,18 @@ export default class Trend extends React.Component {
     this.state={
       report: this.props.report,
     }
-    this.addCommas = this.addCommas.bind(this)
     this.stateChangePerc = this.stateChangePerc.bind(this)
     this.computePercentages = this.computePercentages.bind(this)
   }
 
-  componentWillMount() {
-    this.stateChangePerc(this.state.report.trend_comparison.state)
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      report: nextProps.report,
+    })
   }
 
-  addCommas(num) {
-    return (num + '').replace(/(\d)(?=(\d{3})+$)/g, '$1,')
+  componentWillMount() {
+    this.stateChangePerc(this.state.report.trend_comparison.state)
   }
 
   stateChangePerc(data) {
@@ -38,20 +39,20 @@ export default class Trend extends React.Component {
   }
 
   render(){
-    console.log('trend component state: ', this.state)
+    console.log('this.props.report: ', this.props.report)
     let trend = this.state.report.trend_comparison
     return(
       <div className='trend-container'>
         <div className='trend-bar-header'>
           <p className='trend-bar-title'>Region</p>
+          <p className='fl-right'>% Change</p>
+          <p className='fl-right'>Change</p>
           <p className='fl-right'>
             <span>{this.state.report.trend_comparison.end_year}</span> jobs
           </p>
           <p className='fl-right'>
             <span>{this.state.report.trend_comparison.start_year}</span> jobs
           </p>
-          <p className='fl-right'>Change</p>
-          <p className='fl-right'>% Change</p>
         </div>
         <ul>
           <li className='trend-li clearfix'>

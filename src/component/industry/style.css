@@ -30,7 +30,15 @@ li span {
 }
 
 .chart-header {
-  height: 80px;
+  height: 100px;
+}
+
+.chart-header-title {
+  font-size: 18px;
+  font-weight: 900;
+  text-align: left;
+  padding-bottom: 7px;
+  border-bottom: 0.5px solid lightgrey;
 }
 
 .chart-header p {

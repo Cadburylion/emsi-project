@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import logo from './logo.svg'
 
-import Fetch from './component/fetch/index.js'
+import Dashboard from './component/dashboard/index.js'
 import './App.css'
 
 class App extends Component {
@@ -12,7 +12,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Soli Deo Gloria</h1>
         </header>
-        <Fetch />
+        <Dashboard />
       </div>
     )
   }

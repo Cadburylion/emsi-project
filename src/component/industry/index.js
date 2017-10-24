@@ -7,51 +7,26 @@ export default class Industry extends React.Component{
   constructor(props){
     super(props)
     this.state={
-      occupation: this.props.report.occupation,
-      region: this.props.report.region,
-      summary: this.props.report.summary,
-      trend_comparison: this.props.report.trend_comparison,
-      employing_industries: this.props.report.employing_industries,
+      report: '',
     }
-    this.computePercentages = this.computePercentages.bind(this)
     this.buildBarChart = this.buildBarChart.bind(this)
-    this.addCommas = this.addCommas.bind(this)
   }
 
-  componentWillMount(){
-    let {employing_industries} = this.props.report
-
-    employing_industries = this.computePercentages(employing_industries)
-
-    employing_industries.industries.forEach((e) => {
-      e.in_occupation_jobs = this.addCommas(e.in_occupation_jobs)
-      e.jobs = this.addCommas(e.jobs)
-    })
+  componentWillReceiveProps(nextProps){
+    this.setState({report: nextProps.report})
   }
 
   componentDidMount() {
     this.buildBarChart()
   }
 
-  componentDidUpdate() {
-    this.buildBarChart()
-  }
+  // componentDidUpdate() {
+  //   this.buildBarChart()
+  // }
 
-  addCommas(num) {
-    return (num + '').replace(/(\d)(?=(\d{3})+$)/g, '$1,')
-  }
-
-  computePercentages(data){
-    data.industries.forEach(e => {
-      e.perc_occupation_in_industry = Math.round(((e.in_occupation_jobs / data.jobs) * 100) * 10) / 10
-
-      e.perc_total_jobs_in_industry = Math.round(((e.in_occupation_jobs / e.jobs) * 100) * 10) / 10
-    })
-    return data
-  }
 
   buildBarChart(){
-    let listItems = d3.select('.industry-chart').selectAll('p').data(this.state.employing_industries.industries).enter().append('li').classed('clearfix', true)
+    let listItems = d3.select('.industry-chart').selectAll('p').data(this.props.report.employing_industries.industries).enter().append('li').classed('clearfix', true)
 
     listItems.append('p')
       .style('width', (d) => d.perc_occupation_in_industry + '%')
@@ -72,15 +47,16 @@ export default class Industry extends React.Component{
     return(
       <div className='chart-container'>
         <div className='chart-header'>
+          <h2 className='chart-header-title'>Industries Employing {this.props.report.occupation.title}</h2>
           <p className='industry'>Industry</p>
           <p className='fl-right'>% of Total Jobs in Industry
-            <span>({this.state.summary.jobs.year})</span>
+            <span>({this.props.report.summary.jobs.year})</span>
           </p>
           <p className='fl-right'>% of Occupation Jobs in Industry
-            <span>({this.state.summary.jobs.year})</span>
+            <span>({this.props.report.summary.jobs.year})</span>
           </p>
           <p className='fl-right'>Occupation Jobs in Industry
-            <span>({this.state.summary.jobs.year})</span>
+            <span>({this.props.report.summary.jobs.year})</span>
           </p>
         </div>
         <ul className='industry-chart'></ul>
