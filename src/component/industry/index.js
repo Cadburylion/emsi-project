@@ -4,45 +4,6 @@ import * as d3 from 'd3'
 import './style.css'
 
 export default class Industry extends React.Component{
-  constructor(props){
-    super(props)
-    this.state={
-      report: '',
-    }
-    this.buildBarChart = this.buildBarChart.bind(this)
-  }
-
-  componentWillReceiveProps(nextProps){
-    this.setState({report: nextProps.report})
-  }
-
-  componentDidMount() {
-    this.buildBarChart()
-  }
-
-  // componentDidUpdate() {
-  //   this.buildBarChart()
-  // }
-
-
-  buildBarChart(){
-    let listItems = d3.select('.industry-chart').selectAll('p').data(this.props.report.employing_industries.industries).enter().append('li').classed('clearfix', true)
-
-    listItems.append('p')
-      .style('width', (d) => d.perc_occupation_in_industry + '%')
-      .text((d) => d.title)
-
-    listItems.append('span')
-      .text((d) => d.perc_total_jobs_in_industry + '%')
-
-    listItems.append('span')
-      .text((d) => d.perc_occupation_in_industry + '%')
-
-    listItems.append('span')
-      .text((d) => d.in_occupation_jobs)
-  }
-
-
   render(){
     return(
       <div className='chart-container'>
@@ -59,7 +20,18 @@ export default class Industry extends React.Component{
             <span>({this.props.report.summary.jobs.year})</span>
           </p>
         </div>
-        <ul className='industry-chart'></ul>
+        <ul className='industry-chart'>
+          {this.props.report.employing_industries.industries.map((e, i) => {
+            return <li key={i + 'a'} className='clearfix'>
+              <p key={i + 'b'} style={{width: e.perc_occupation_in_industry + '%'}}>
+                {e.title}
+              </p>
+              <span key={i + 'c'}>{e.perc_total_jobs_in_industry + '%'}</span>
+              <span key={i + 'd'}>{e.perc_occupation_in_industry + '%'}</span>
+              <span key={i + 'e'}>{e.in_occupation_jobs}</span>
+            </li>
+          })}
+        </ul>
       </div>
     )
   }

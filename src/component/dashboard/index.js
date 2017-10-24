@@ -16,14 +16,12 @@ export default class Dashboard extends React.Component {
     }
     this.mockAJAX = this.mockAJAX.bind(this)
     this.handleData = this.handleData.bind(this)
-    this.dashboardData = this.dashboardData.bind(this)
-    this.dashboardMockData = this.dashboardMockData.bind(this)
   }
 
   componentDidMount(){
-    // AJAX request
+    // AJAX request would go here
 
-    // fetch(data, {method: 'GET'})
+    // fetch(url, {method: 'GET'})
     //   .then((res) => res.ok ? res.json() : '')
     //    .then((res) => perform logic on data)
     //   .then((res) => setState({report: res}))
@@ -33,6 +31,7 @@ export default class Dashboard extends React.Component {
 
   mockAJAX(data){
     let dataCopy = JSON.parse(JSON.stringify(data))
+    // this.sortIndustries(dataCopy)
     this.handleData(dataCopy)
 
     this.setState({
@@ -42,24 +41,16 @@ export default class Dashboard extends React.Component {
 
   handleData(data){
     data = util.computePercentages(data)
+    data = util.sortIndustries(data)
     data = util.addCommas(data)
-  }
-
-  dashboardData(){
-    this.mockAJAX(emsiData)
-  }
-
-  dashboardMockData(){
-    this.mockAJAX(mockData)
   }
 
   render(){
     let reportCopy = JSON.parse(JSON.stringify(this.state.report))
-    console.log('dashboard state: ', this.state.report)
     return(
       <div className='component-container'>
-        <div onClick={this.dashboardData}> Emsi Data </div>
-        <div onClick={this.dashboardMockData}> Mock Data </div>
+        <div onClick={() => this.mockAJAX(emsiData)}> Emsi Data </div>
+        <div onClick={() => this.mockAJAX(mockData)}> Mock Data </div>
         {util.renderIf(this.state.report,
           <div>
             <Overview report={reportCopy} />

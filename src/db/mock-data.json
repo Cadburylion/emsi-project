@@ -17,8 +17,8 @@
     "jobs_growth": {
       "start_year": 2008,
       "end_year": 2014,
-      "regional": -7.4,
-      "national_avg": -5.6
+      "regional": -29.2,
+      "national_avg": -6.1
     },
     "earnings": {
       "regional": 25.67,
@@ -29,20 +29,20 @@
     "start_year": 2008,
     "end_year": 2014,
     "regional": [
-      11904,
-      12384,
-      12352,
-      12680,
-      12920,
-      13114
+      24834,
+      14532,
+      46372,
+      23013,
+      13242,
+      17583
     ],
     "state": [
-      13103,
-      13598,
-      13599,
-      13968,
-      14244,
-      14469
+      23412,
+      21342,
+      19842,
+      21344,
+      19872,
+      18723
     ],
     "nation": [
       300651,
@@ -83,7 +83,7 @@
       {
         "naics": "541512",
         "title": "Kite Manufacturing",
-        "in_occupation_jobs": 296,
+        "in_occupation_jobs": 189,
         "jobs": 642
       }
     ]
