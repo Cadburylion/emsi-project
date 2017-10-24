@@ -21,7 +21,7 @@ export default class Overview extends React.Component {
         <div className='overview-statistics'>
           <div className='overview-jobs'>
             <div className='overview-jobs-inner'>
-              <p>{summary.jobs.regional}</p>
+              <p>{summary.jobs.regional.toLocaleString()}</p>
               <p>Jobs({summary.jobs.year})</p>
               <p>
                 {summary.jobs_growth.job_perc}%

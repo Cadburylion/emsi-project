@@ -35,7 +35,7 @@ export default class Industry extends React.Component{
                 {e.perc_occupation_in_industry + '%'}
               </span>
               <span key={i + 'e'}>
-                {e.in_occupation_jobs}
+                {e.in_occupation_jobs.toLocaleString()}
               </span>
             </li>
           })}

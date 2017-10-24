@@ -44,7 +44,6 @@ export default class Dashboard extends React.Component {
   handleData(data){
     data = util.computePercentages(data)
     data = util.sortIndustries(data)
-    data = util.addCommas(data)
   }
 
   toggleCurrent(btn){
