@@ -10,7 +10,7 @@ export default class Overview extends React.Component {
       report: this.props.report || '',
     }
     // this.addCommas = this.addCommas.bind(this)
-    this.computePercentage = this.computePercentage.bind(this)
+    // this.computePercentage = this.computePercentage.bind(this)
   }
 
   componentWillReceiveProps(nextProps){
@@ -64,17 +64,17 @@ export default class Overview extends React.Component {
               <p>{this.state.report.summary.jobs.regional}</p>
               <p>Jobs({this.state.report.summary.jobs.year})</p>
               <p>
-                {this.state.jobPerc}
-                <span className={this.state.jobGrowth ? 'positive' : 'negative'}> {this.state.jobGrowth ? 'above' : 'of'} </span>
+                {this.props.report.summary.jobs_growth.job_perc}%
+                <span className={this.props.report.summary.jobs_growth.job_perc > 100 ? 'positive' : 'negative'}> {this.props.report.summary.jobs_growth.job_perc ? 'above' : 'of'} </span>
                 National average
               </p>
             </div>
           </div>
           <div className='overview-change'>
             <div className='overview-change-inner'>
-              <p className={this.state.regGrowth ? 'positive' : 'negative'}>{this.state.regGrowth ? '+' : ''}{this.state.report.summary.jobs_growth.regional}%</p>
+              <p className={this.props.report.summary.jobs_growth.regional > 0 ? 'positive' : 'negative'}>{this.props.report.summary.jobs_growth.regional > 0 ? '+' : ''}{this.state.report.summary.jobs_growth.regional}%</p>
               <p>% Change ({this.state.report.summary.jobs_growth.start_year})-({this.state.report.summary.jobs_growth.end_year})</p>
-              <p>Nation: <span className={this.state.natGrowth ? 'positive' : 'negative'}>{this.state.natGrowth ? '+' : ''}{this.state.report.summary.jobs_growth.national_avg}%</span></p>
+              <p>Nation: <span className={this.props.report.summary.jobs_growth.national_avg > 0 ? 'positive' : 'negative'}>{this.props.report.summary.jobs_growth.national_avg > 0 ? '+' : ''}{this.props.report.summary.jobs_growth.national_avg}%</span></p>
             </div>
           </div>
           <div className='overview-earnings'>

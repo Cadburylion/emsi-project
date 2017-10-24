@@ -14,6 +14,7 @@ export default class Dashboard extends React.Component {
     this.state={
       report: '',
     }
+    this.mockAJAX = this.mockAJAX.bind(this)
     this.handleData = this.handleData.bind(this)
     this.dashboardData = this.dashboardData.bind(this)
     this.dashboardMockData = this.dashboardMockData.bind(this)
@@ -27,7 +28,11 @@ export default class Dashboard extends React.Component {
     //    .then((res) => perform logic on data)
     //   .then((res) => setState({report: res}))
 
-    let dataCopy = JSON.parse(JSON.stringify(emsiData))
+    this.mockAJAX(emsiData)
+  }
+
+  mockAJAX(data){
+    let dataCopy = JSON.parse(JSON.stringify(data))
     this.handleData(dataCopy)
 
     this.setState({
@@ -37,25 +42,15 @@ export default class Dashboard extends React.Component {
 
   handleData(data){
     data = util.computePercentages(data)
-
     data = util.addCommas(data)
-
-    // data.summary.jobs.regional = util.addCommas(data.summary.jobs.regional)
-    //
-    // data.summary.jobs.national_avg = util.addCommas(data.summary.jobs.national_avg)
-    //
-    // data.employing_industries.industries.forEach((e) => {
-    //   e.in_occupation_jobs = util.addCommas(e.in_occupation_jobs)
-    //   e.jobs = util.addCommas(e.jobs)
-    // })
   }
 
   dashboardData(){
-    this.setState({report: emsiData})
+    this.mockAJAX(emsiData)
   }
 
   dashboardMockData(){
-    this.setState({report: mockData})
+    this.mockAJAX(mockData)
   }
 
   render(){

@@ -1,7 +1,6 @@
 export const renderIf = (test, component) => test ? component : undefined
 
 export const addCommas = (data) => {
-  // let insertCommas = replace(/(\d)(?=(\d{3})+$)/g, '$1,')
 
   data.summary.jobs.regional = (data.summary.jobs.regional + '').replace(/(\d)(?=(\d{3})+$)/g, '$1,')
 
@@ -13,26 +12,10 @@ export const addCommas = (data) => {
     e.jobs = (e.jobs + '').replace(/(\d)(?=(\d{3})+$)/g, '$1,')
   })
 
+  // data.trend_comparison.
+
+  return data
 }
-
-
-// addCommas(num) {
-//   return (num + '').replace(/(\d)(?=(\d{3})+$)/g, '$1,')
-// }
-
-
-
-
-// data.summary.jobs.regional = util.addCommas(data.summary.jobs.regional)
-//
-// data.summary.jobs.national_avg = util.addCommas(data.summary.jobs.national_avg)
-//
-// data.employing_industries.industries.forEach((e) => {
-//   e.in_occupation_jobs = util.addCommas(e.in_occupation_jobs)
-//   e.jobs = util.addCommas(e.jobs)
-
-
-
 
 export const computePercentages = (data) => {
 
@@ -43,5 +26,6 @@ export const computePercentages = (data) => {
 
     e.perc_total_jobs_in_industry = Math.round(((e.in_occupation_jobs / e.jobs) * 100) * 10) / 10
   })
+
   return data
 }

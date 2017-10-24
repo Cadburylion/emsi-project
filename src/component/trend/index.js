@@ -10,17 +10,17 @@ export default class Trend extends React.Component {
       report: this.props.report,
     }
     this.stateChangePerc = this.stateChangePerc.bind(this)
-    this.computePercentages = this.computePercentages.bind(this)
+    // this.computePercentages = this.computePercentages.bind(this)
   }
 
   componentWillReceiveProps(nextProps){
     this.setState({
-      report: nextProps.report,
+
     })
   }
 
   componentWillMount() {
-    this.stateChangePerc(this.state.report.trend_comparison.state)
+    this.stateChangePerc(this.props.report.trend_comparison.state)
   }
 
   stateChangePerc(data) {
@@ -29,17 +29,7 @@ export default class Trend extends React.Component {
     })
   }
 
-  computePercentages(data){
-    data.industries.forEach(e => {
-      e.perc_occupation_in_industry = Math.round(((e.in_occupation_jobs / data.jobs) * 100) * 10) / 10
-
-      e.perc_total_jobs_in_industry = Math.round(((e.in_occupation_jobs / e.jobs) * 100) * 10) / 10
-    })
-    return data
-  }
-
   render(){
-    console.log('this.props.report: ', this.props.report)
     let trend = this.state.report.trend_comparison
     return(
       <div className='trend-container'>
