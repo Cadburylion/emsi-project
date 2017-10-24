@@ -3,6 +3,7 @@ import './style.css'
 
 export default class Industry extends React.Component{
   render(){
+    let {summary} = this.props.report
     return(
 
       <div className='line-chart-container'>
@@ -11,13 +12,13 @@ export default class Industry extends React.Component{
           <h2 className='line-chart-header-title'>Industries Employing {this.props.report.occupation.title}</h2>
           <p className='industry'>Industry</p>
           <p className='fl-right'>% of Total Jobs in Industry
-            <span>({this.props.report.summary.jobs.year})</span>
+            <span>({summary.jobs.year})</span>
           </p>
           <p className='fl-right'>% of Occupation Jobs in Industry
-            <span>({this.props.report.summary.jobs.year})</span>
+            <span>({summary.jobs.year})</span>
           </p>
           <p className='fl-right'>Occupation Jobs in Industry
-            <span>({this.props.report.summary.jobs.year})</span>
+            <span>({summary.jobs.year})</span>
           </p>
         </div>
 
@@ -34,7 +35,7 @@ export default class Industry extends React.Component{
                 {e.perc_occupation_in_industry + '%'}
               </span>
               <span key={i + 'e'}>
-                {e.in_occupation_jobs}
+                {e.in_occupation_jobs.toLocaleString()}
               </span>
             </li>
           })}

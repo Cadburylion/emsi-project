@@ -25,28 +25,28 @@ export default class Trend extends React.Component {
           <li className='trend-li clearfix'>
             <p>Region</p>
             <span>{summary.jobs_growth.regional}%</span>
-            <span>{trend_comparison.regional[trend_comparison.regional.length - 1] - trend_comparison.regional[0]}</span>
-            <span>{trend_comparison.regional[trend_comparison.regional.length - 1]}</span>
-            <span>{trend_comparison.regional[0]}</span>
+            <span>{(trend_comparison.regional[trend_comparison.regional.length - 1] - trend_comparison.regional[0]).toLocaleString()}</span>
+            <span>{(trend_comparison.regional[trend_comparison.regional.length - 1]).toLocaleString()}</span>
+            <span>{trend_comparison.regional[0].toLocaleString()}</span>
           </li>
 
           <li className='trend-li clearfix'>
             <p>State</p>
             <span>{summary.jobs_growth.state}%</span>
-            <span>{trend_comparison.state[trend_comparison.state.length - 1] - trend_comparison.state[0]}</span>
-            <span>{trend_comparison.state[trend_comparison.state.length - 1]}</span>
-            <span>{trend_comparison.state[0]}</span>
+            <span>{(trend_comparison.state[trend_comparison.state.length - 1] - trend_comparison.state[0]).toLocaleString()}</span>
+            <span>{(trend_comparison.state[trend_comparison.state.length - 1]).toLocaleString()}</span>
+            <span>{trend_comparison.state[0].toLocaleString()}</span>
           </li>
 
           <li className='trend-li clearfix'>
             <p>Nation</p>
             <span>{summary.jobs_growth.national_avg}%</span>
-            <span>{trend_comparison.nation[trend_comparison.nation.length - 1] - trend_comparison.nation[0]}</span>
-            <span>{trend_comparison.nation[trend_comparison.nation.length - 1]}</span>
-            <span>{trend_comparison.nation[0]}</span>
+            <span>{(trend_comparison.nation[trend_comparison.nation.length - 1] - trend_comparison.nation[0]).toLocaleString()}</span>
+            <span>{(trend_comparison.nation[trend_comparison.nation.length - 1]).toLocaleString()}</span>
+            <span>{trend_comparison.nation[0].toLocaleString()}</span>
           </li>
         </ul>
-        
+
       </div>
     )
   }
