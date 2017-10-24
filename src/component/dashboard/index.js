@@ -60,19 +60,19 @@ export default class Dashboard extends React.Component {
       <div className='component-container'>
 
         <div className='ajax-btn' onClick={() => {
-          this.mockAJAX(emsiData)
-          this.toggleCurrent('emsi')
+          this.mockAJAX(mockData)
+          this.toggleCurrent(null)
         }}>
-          <span className={this.state.emsiData ? 'current' : ''}>Emsi Data</span>
+          <span className={this.state.emsiData ? '' : 'current'}>Mock Data</span>
           <span></span>
           <span></span>
         </div>
 
         <div className='ajax-btn' onClick={() => {
-          this.mockAJAX(mockData)
-          this.toggleCurrent(null)
+          this.mockAJAX(emsiData)
+          this.toggleCurrent('emsi')
         }}>
-          <span className={this.state.emsiData ? '' : 'current'}>Mock Data</span>
+          <span className={this.state.emsiData ? 'current' : ''}>Emsi Data</span>
           <span></span>
           <span></span>
         </div>
