@@ -31,7 +31,7 @@ li span {
 }
 
 .line-chart-header {
-  height: 100px;
+  height: 110px;
 }
 
 .line-chart-header-title {
@@ -64,6 +64,7 @@ li span {
 
 .industry-line-chart li {
   text-align: left;
+  height: 34px;
   color: black;
   overflow: visible;
   white-space: nowrap;
@@ -71,6 +72,7 @@ li span {
 }
 
 .industry-line-chart p {
+  margin-top: 0.5px;
   padding: 7px;
   display: inline-block;
   background: #eaf2f9;
