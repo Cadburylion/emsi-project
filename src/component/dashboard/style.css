@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-.current {
-  color: #518ec9;
-}
-
 .ajax-btn {
   display: inline-block;
   position: relative;
@@ -25,12 +21,13 @@
 
 .ajax-btn span:nth-child(2), .ajax-btn span:nth-child(3) {
   position: absolute;
-  width: 50%;
+  width: 0;
   height: 2px;
   top: 20px;
-  left: 25%;
+  left: 50%;
   background: #518ec9;
-  transition: .3s ease-in-out;
+  border-radius: 5px;
+  transition: .2s ease-in-out;
 }
 
 .ajax-btn:hover span:nth-child(2) {
@@ -39,6 +36,12 @@
 }
 
 .ajax-btn:hover span:nth-child(3) {
+  width: 50%;
   top: 25px;
   left: 25%;
+  transition: .25s ease-in-out;
+}
+
+.current {
+  color: #518ec9;
 }
